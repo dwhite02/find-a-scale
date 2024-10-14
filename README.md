@@ -21,6 +21,7 @@ A full-stack app that generates the correct musical scale (major, minor, etc.) b
 
 ## Requirements
 - [.NET SDK](https://dotnet.microsoft.com/download) (version 7.0)
+- [Node.js](https://nodejs.org/) (version 14.x or later)
 - Code editor of choice (e.g., Visual Studio, VS Code)
 
 ## Installation
