@@ -1,0 +1,109 @@
+.piano {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    position: relative;
+    width: 100%;
+    left: 0;
+    right: 0;
+    bottom: -10px;
+    height: auto;
+    margin: 0 auto;
+    text-align: center;
+    max-width: 650px;
+    padding: 10px;
+    padding-bottom: 0;
+}
+
+.key {
+    position: relative;
+    z-index: 1;
+    display: inline-block;
+    width: calc(100% / 7.5);
+    height: 155vw;
+    max-height: 250px;
+    border: 1px solid #333;
+    box-sizing: border-box;
+    background-color: #fff;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    overflow: hidden;
+    transition: background-color .45s;
+
+    &::after {
+        transition: background-color .45s;
+    }
+
+    &:hover {
+        background-color: lighten($color: #EEB902, $amount: 15%);
+
+        .key__text {
+            font-size: 1.25em;
+            color: #000;
+        }
+
+        &::after {
+            background-color: lighten($color: #EEB902, $amount: 10%);
+        }
+    }
+
+    &__text {
+        position: absolute;
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: .75em;
+        color: black;
+        font-weight: bold;
+        transition: all .25s;
+    }
+
+
+    &--black {
+        width: calc(100% / 15);
+        /* Adjusting width for black keys */
+        height: 150px;
+        background-color: #141115;
+        z-index: 2;
+        margin-left: -17.5px;
+        /* Center black key on white keys */
+        margin-right: -17.5px;
+        box-shadow: 0 2px 2px rgba(0, 0, 0, 0.5);
+
+        .key__text {
+            color: white;
+        }
+    }
+
+    &--white {
+        box-shadow: 0px 8px 0px #141115;
+    }
+
+    &--pressed {
+        
+        .key__text {
+            color: #141115;
+        }
+
+        &::after {
+            content: "";
+            display: block;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(#FE5E41, .825);
+            box-shadow: inset 0px 0px 15px rgba(#491C00, .225);
+        }
+    }
+
+}
+
+/* Rounded corners for the first and last white keys */
+.key:first-of-type {
+    border-top-left-radius: 15px;
+    // border-bottom-left-radius: 15px;
+}
+
+.key:last-of-type {
+    border-top-right-radius: 15px;
+    // border-bottom-right-radius: 15px;
+}
