@@ -37,7 +37,16 @@ A full-stack app that generates the correct musical scale (major, minor, etc.) b
 
 To run the application locally, follow these steps:
 
-1. **Start the App**:
+1. **Frontend**:
+   - Navigate to the frontend directory:
+   ```bash
+   cd ClientApp
+   ```
+   - Install dependencies:
+   ```bash
+   npm install
+   ```
+2. **Backend**:
    - Open a terminal and navigate to the backend folder (e.g., `/MusicScaleApi`).
    - Run the following command to start the API and Frontend:
      ```bash
