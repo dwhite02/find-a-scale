@@ -23,6 +23,10 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+app.UseStaticFiles();
+app.MapFallbackToFile("index.html"); // For single-page applications
+
+
 app.UseAuthorization();
 
 app.MapControllers();
