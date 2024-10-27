@@ -36,6 +36,8 @@ RUN adduser \
     appuser
 USER appuser
 
+# Expose the port
+EXPOSE 8080
+
 # Entry point to run the application
 ENTRYPOINT ["dotnet", "REACT-MusicScale.dll"]
-
