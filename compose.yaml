@@ -14,12 +14,9 @@ services:
       context: .  # The current directory is the build context
       target: final  # Use the final stage of the Dockerfile
     ports:
-      - "80:80"  # Map port 80 in the container to port 80 on the host
-
+      - "8080:8080"  # Map port 8080 in the container to port 8080 on the host
     environment:
       - ASPNETCORE_ENVIRONMENT=Production  # Set the environment to Production
-      - ASPNETCORE_URLS=http://+:80  # Ensure this is set to the port you want to listen on
-
 
 # The commented out section below is an example of how to define a PostgreSQL
 # database that your application can use. `depends_on` tells Docker Compose to

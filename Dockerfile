@@ -37,7 +37,7 @@ RUN adduser \
 USER appuser
 
 # Expose the port
-EXPOSE 80
+EXPOSE 8080
 
 
 # Entry point to run the application
