@@ -3,12 +3,12 @@ using REACT_MusicScale.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Set Kestrel server to listen on port 80
+// Set Kestrel to listen on the port defined by the PORT environment variable
+var port = Environment.GetEnvironmentVariable("PORT") ?? "8080"; // Fallback to 8080 if PORT is not set
 builder.WebHost.ConfigureKestrel(serverOptions =>
 {
-    serverOptions.ListenAnyIP(80); // Change to 80 for Render
+    serverOptions.ListenAnyIP(int.Parse(port)); // Bind to the port
 });
-
 
 // Add services to the container.
 
