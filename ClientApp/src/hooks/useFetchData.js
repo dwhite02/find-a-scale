@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import dataScaleService from '../services/dataScaleService';
 
 const useFetchData = (onDataLoad) => {
     const [loading, setLoading] = useState(false);
@@ -7,15 +6,18 @@ const useFetchData = (onDataLoad) => {
 
     const fetchData = async (scale, note) => {
         setLoading(true);
-        
-        const { data, error } = await dataScaleService.fetchData(scale, note);
-        if (error) {
+
+        try {
+            const response = await fetch(`scalefinder/${scale}/${note}`);
+            if (!response.ok) throw new Error('Network response was not ok');
+            const result = await response.json();
+            onDataLoad(result);
+            setError(null);
+        } catch (error) {
             setError(error); // Reset error state on new fetch
             onDataLoad(null);
-        } else {
-            onDataLoad(data);
-            setError(null);
         }
+        
         setLoading(false);
     };
 
