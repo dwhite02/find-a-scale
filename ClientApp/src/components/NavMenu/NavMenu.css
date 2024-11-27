@@ -2,6 +2,8 @@
   white-space: normal;
   text-align: center;
   word-break: break-all;
+  font-weight: 900;
+  text-shadow: .125rem .175rem 5px rgba(0, 0, 0, .575);
 }
 
 html {
@@ -14,6 +16,11 @@ html {
 }
 
 .box-shadow {
-  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+  box-shadow: 0 .125rem 10px rgba(0, 0, 0, .775);
 }
 
+.navbar {
+  background-color: rgba(254, 94, 65, 1);
+  /* background-color: rgb(253.3875, 210.65625, 63.1125); */
+  /* border-bottom: solid 1px rgba(0, 0, 0, .575); */
+}
