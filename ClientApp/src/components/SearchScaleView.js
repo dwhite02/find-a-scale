@@ -6,10 +6,6 @@ import {ScaleProvider} from '../contexts/ScaleContext';
 
 
 const SearchScaleView = () => {
-    // const [data, setData] = useState(null); // State for fetched object data
-    // const [loading, setLoading] = useState(false); // State to indicate loading status
-    // const [error, setError] = useState(null); // State to handle errors
-
     return (
         <ScaleProvider>
             <SearchBar/>
