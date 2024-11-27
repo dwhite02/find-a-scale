@@ -3,7 +3,7 @@
   text-align: center;
   word-break: break-all;
   font-weight: 900;
-  text-shadow: .125rem .175rem 5px rgba(0, 0, 0, .575);
+  text-shadow: .125rem .175rem 5px rgba(0, 0, 0, .375);
 }
 
 html {
@@ -16,7 +16,7 @@ html {
 }
 
 .box-shadow {
-  box-shadow: 0 .125rem 10px rgba(0, 0, 0, .775);
+  box-shadow: 0 .125rem 5px rgba(0, 0, 0, .675);
 }
 
 .navbar {
