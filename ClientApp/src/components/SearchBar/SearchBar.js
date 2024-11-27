@@ -1,10 +1,15 @@
-import { useState, useEffect } from 'react';
+// Hooks
+import { useState } from 'react';
+import { useScale } from "../../contexts/ScaleContext";
+
+// Components
 import SelectInput from './SelectInput';
 import TextInput from './TextInput';
 import Button from './Button';
-import selectOptions from "../../data/SelectOptions";
 import GenerateRandomScale from './GenerateRandomScale';
-import useFetchData from '../../hooks/useFetchData';
+
+// Data
+import selectOptions from "../../data/SelectOptions";
 
 const initialFormState = {
     inputValue: '',
@@ -16,15 +21,10 @@ const initialErrorState = {
     selectedScale: ''
 };
 
-const SearchBar = ({ onDataLoad, onLoading, onGetError }) => {
+const SearchBar = () => {
     const [formData, setFormData] = useState(initialFormState);
     const [formErrors, setFormErrors] = useState(initialErrorState);
-    const { fetchData, loading, error } = useFetchData(onDataLoad);
-    
-    useEffect(() => {
-        onLoading(loading);
-        onGetError(error);
-    }, [loading, error, onLoading, onGetError]);
+    const { fetchData } = useScale();
     
     const validate = () => {
         const newErrors = {

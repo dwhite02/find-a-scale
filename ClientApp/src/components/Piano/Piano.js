@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect} from 'react';
+import { useScale } from "../../contexts/ScaleContext";
 import './Piano.scss';
 
 const sharpToFlat = {
@@ -31,10 +32,11 @@ const flatToSharp = {
     "B": "A##"
 };
 
-const Piano = ({scaleData}) => {
+const Piano = () => {
     const [piano, setPiano] = useState('');
     const [scale, setScale] = useState('');
     const [isFlat, setIsFlat] = useState(false);
+    const scaleData = useScale().data;
     
     useEffect(() => {
         const { musicalNotes = [], scaleList = [], hasFlats = "" } = scaleData?.musicItem || {};

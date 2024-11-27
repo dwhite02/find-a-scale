@@ -1,19 +1,21 @@
-import React, { useState } from 'react';
+import React from 'react';
 import SearchBar from "./SearchBar";
 import ScaleContentDisplay from "./ScaleContentDisplay";
 import Piano from './Piano';
+import {ScaleProvider} from '../contexts/ScaleContext';
+
 
 const SearchScaleView = () => {
-    const [data, setData] = useState(null); // State for fetched object data
-    const [loading, setLoading] = useState(false); // State to indicate loading status
-    const [error, setError] = useState(null); // State to handle errors
+    // const [data, setData] = useState(null); // State for fetched object data
+    // const [loading, setLoading] = useState(false); // State to indicate loading status
+    // const [error, setError] = useState(null); // State to handle errors
 
     return (
-        <div>
-            <SearchBar onLoading={setLoading} onDataLoad={setData} onGetError={setError}/>
-            <ScaleContentDisplay scaleData={data} isLoading={loading} isError={error}/>
-            <Piano scaleData={data}/>
-        </div>
+        <ScaleProvider>
+            <SearchBar/>
+            <ScaleContentDisplay/>
+            <Piano/>
+        </ScaleProvider>
     )
 }
 
