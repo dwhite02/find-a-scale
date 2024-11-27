@@ -9,6 +9,4 @@ const fetchData = async (scale, note) => {
     }
 };
 
-export default {
-    fetchData,
-};
+export default fetchData;
