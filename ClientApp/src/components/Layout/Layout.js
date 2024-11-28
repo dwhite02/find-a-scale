@@ -3,6 +3,7 @@ import { Container } from 'reactstrap';
 import NavMenu from '../NavMenu';
 import './Layout.css'
 import InitialScreen from '../InitialScreen';
+import { motion, AnimatePresence } from "motion/react";
 
 const Layout = ({ children }) => {
     const [isInitialScreen, setIsInitialScreen] = useState(true);
@@ -13,19 +14,36 @@ const Layout = ({ children }) => {
 
     return (
         <div id="page">
-            { isInitialScreen ? (
+            <AnimatePresence mode='wait'>
+                {/* Initial Screen with animation on mount and unmount */}
+                {isInitialScreen && (
+                    <motion.div
+                        key="initial-screen" // Unique key for AnimatePresence
+                        initial={{ opacity: 0 }} // Start invisible
+                        animate={{ opacity: 1 }} // Fade in
+                        exit={{ opacity: 0, y: "-100%" }} // Slide out to the left
+                        transition={{ opacity: { duration: 0.5 }, y: { duration: 0.5 } }}
+                    >
+                        <InitialScreen isInitialScreen={isInitialScreen} onClick={handleScreenChange} />
+                    </motion.div>
+                )}
 
-                <InitialScreen onClick={handleScreenChange}/>
-
-            ) : (
-                <>
-                    <NavMenu />
-                    <Container tag="main">
-                        {children}
-                    </Container>
-                </>
-            )}
-            
+                {/* Content Screen with fade-in effect */}
+                {!isInitialScreen && (
+                    <motion.div
+                        key="content-screen" // Unique key for AnimatePresence
+                        initial={{ opacity: 0, y: "100%" }} // Start offscreen to the right
+                        animate={{ opacity: 1, y: 0 }} // Slide in and fade in
+                        exit={{ opacity: 0 }} // Fade out when exiting
+                        transition={{ opacity: { duration: 0.5 }, y: { duration: 0.5 } }}
+                    >
+                        <NavMenu />
+                        <Container tag="main">
+                            {children}
+                        </Container>
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </div>
     );
 };
