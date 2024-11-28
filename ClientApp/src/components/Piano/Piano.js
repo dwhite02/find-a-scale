@@ -1,5 +1,6 @@
 import React, { useState, useEffect} from 'react';
 import { useScale } from "../../contexts/ScaleContext";
+import { motion} from "motion/react";
 import './Piano.scss';
 
 const sharpToFlat = {
@@ -59,24 +60,28 @@ const Piano = () => {
     }
 
     return (
-        <div>
-            {
-                piano.length ? (
-                    <div className="piano">
-                        {piano.map((key) => (
-                            <div
-                                key={key}
-                                className={`key ${key.includes('#') || key.includes('b') ? 'key--black' : 'key--white'} ${isPressed(key, scale) ? 'key--pressed' : '' }`}
-                            >
-                                <span className='key__text'>{key}</span>
-                            </div>
-                        ))}
-                    </div>
-                ) : (
-                    <></>
-                )
-            }
-        </div>
+        <motion.div
+            key={scaleData ? scaleData.musicItem?.scaleList.join('-') : 'initial'}  // Change key when scaleData changes
+            initial={{ opacity: 0 }}  // Fade-in on mount
+            animate={{ opacity: 1 }}  // Fade-in after scaleData changes
+            exit={{ opacity: 0 }}  // Fade-out when leaving (optional)
+            transition={{ duration: 1 }}  // Duration of fade-in
+        >
+            {piano.length ? (
+                <div className="piano">
+                    {piano.map((key) => (
+                        <div
+                            key={key}
+                            className={`key ${key.includes('#') || key.includes('b') ? 'key--black' : 'key--white'} ${isPressed(key, scale) ? 'key--pressed' : ''}`}
+                        >
+                            <span className='key__text'>{key}</span>
+                        </div>
+                    ))}
+                </div>
+            ) : (
+                <></>
+            )}
+        </motion.div>
     );
 };
 
