@@ -1,16 +1,15 @@
 import React from 'react';
 import SearchBar from "./SearchBar";
-import ScaleContentDisplay from "./ScaleContentDisplay";
-import Piano from './Piano';
-import {ScaleProvider} from '../contexts/ScaleContext';
+import ContainerContent from './ContainerContent';
+import { ScaleProvider} from '../contexts/ScaleContext';
 
 
 const SearchScaleView = () => {
+
     return (
         <ScaleProvider>
             <SearchBar/>
-            <ScaleContentDisplay/>
-            <Piano/>
+            <ContainerContent/>
         </ScaleProvider>
     )
 }
