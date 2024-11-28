@@ -61,13 +61,11 @@ const Piano = () => {
 
     return (
         <motion.div
-            key={scaleData ? scaleData.musicItem?.scaleList.join('-') : 'initial'}  // Change key when scaleData changes
-            initial={{ opacity: 0 }}  // Fade-in on mount
-            animate={{ opacity: 1 }}  // Fade-in after scaleData changes
-            exit={{ opacity: 0 }}  // Fade-out when leaving (optional)
-            transition={{ duration: .125 }}  // Duration of fade-in
+            initial={{ opacity: 0, y: 100 }} // Start off-screen to the left
+            animate={{ opacity: 1, y: 0 }} // Slide in and fade in
+            transition={{ duration: .675 }}
         >
-            {piano.length ? (
+            {piano.length && (
                 <div className="piano">
                     {piano.map((key) => (
                         <div
@@ -78,8 +76,6 @@ const Piano = () => {
                         </div>
                     ))}
                 </div>
-            ) : (
-                <></>
             )}
         </motion.div>
     );
