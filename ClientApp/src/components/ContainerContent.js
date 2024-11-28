@@ -12,7 +12,7 @@ const ContainerContent = () => {
             {loading && (
                 <div
                     style={{
-                        height: '425px',  // This ensures space is reserved for loading state
+                        height: '445px',  // This ensures space is reserved for loading state
                         position: 'absolute',
                         width: '100%',
                         background: 'white',
@@ -46,7 +46,7 @@ const ContainerContent = () => {
             {error && (
                 <div
                     style={{
-                        height: '425px',  // This ensures space is reserved for loading state
+                        height: '445px',  // This ensures space is reserved for loading state
                         position: 'absolute',
                         width: '100%',
                         background: 'white',
