@@ -1,0 +1,31 @@
+
+
+/*  -----------------
+    Breakpoints
+---------------------  */
+
+// Define your breakpoints as variables (optional)
+$breakpoints: (
+    xs: 375px,
+    // Mobile
+    sm: 576px,
+    // Small tablets
+    md: 768px,
+    // Tablets
+    lg: 992px,
+    // Small laptops
+    xl: 1024px // Desktops
+);
+
+/*  -----------------
+    Colors
+---------------------  */
+$primary: #FE5E41;
+// $secondary:;
+
+/*  -----------------
+    Typography
+---------------------  */
+
+$base-font: "Halo Dek", Helvetica, sans-serif;
+// $secondary-font:;
