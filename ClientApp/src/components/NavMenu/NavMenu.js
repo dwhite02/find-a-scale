@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Collapse, Navbar, NavbarBrand, NavbarToggler, NavItem, NavLink } from 'reactstrap';
 import { Link } from 'react-router-dom';
-import './NavMenu.css';
+import './NavMenu.scss';
 
 const NavMenu = () => {
     const [collapsed, setCollapsed] = useState(true);
@@ -13,7 +13,7 @@ const NavMenu = () => {
     return (
         <header>
             <Navbar className="navbar-expand-sm navbar-toggleable-sm ng-white box-shadow mb-5" container dark>
-                <NavbarBrand tag={Link} to="/">FindAScale</NavbarBrand>
+                <NavbarBrand tag={Link} to="/">Find A Scale</NavbarBrand>
                 <NavbarToggler onClick={toggleNavbar} className="mr-2" />
                 <Collapse className="d-sm-inline-flex flex-sm-row-reverse" isOpen={!collapsed} navbar>
                     <ul className="navbar-nav flex-grow">

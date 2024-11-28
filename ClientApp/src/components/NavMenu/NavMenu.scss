@@ -1,9 +1,16 @@
-﻿a.navbar-brand {
+﻿@use "../../assets/scss/abstracts/index" as *;
+
+a.navbar-brand {
   white-space: normal;
   text-align: center;
   word-break: break-all;
   font-weight: 900;
-  text-shadow: .125rem .175rem 5px rgba(0, 0, 0, .375);
+  // text-transform: uppercase;
+  text-shadow: .125rem .175rem 2px rgba(0, 0, 0, 1);
+  // font-family: $base-font;
+  border: #000 solid 1px;
+  padding: 5px 20px;
+  border-radius: 30px;
 }
 
 html {
