@@ -65,7 +65,7 @@ const Piano = () => {
             initial={{ opacity: 0 }}  // Fade-in on mount
             animate={{ opacity: 1 }}  // Fade-in after scaleData changes
             exit={{ opacity: 0 }}  // Fade-out when leaving (optional)
-            transition={{ duration: 1 }}  // Duration of fade-in
+            transition={{ duration: .125 }}  // Duration of fade-in
         >
             {piano.length ? (
                 <div className="piano">
