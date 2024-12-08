@@ -49,10 +49,14 @@ const SearchBar = () => {
 
         // Checks if there are no validation errors, otherwise will fetch data
         if (Object.values(validationErrors).every(x => x === '')) {
-            fetchData(formData.selectedScale, formData.inputValue);
+            // Encode the input value to replace special characters like #
+            const encodedInputValue = encodeURIComponent(formData.inputValue);
+
+            fetchData(formData.selectedScale, encodedInputValue);
+
             setFormData((prevData) => ({
                 ...prevData,
-                inputValue: ''
+                inputValue: ''  // Reset input value after form submission
             }));
         }
     };
