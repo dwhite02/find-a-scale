@@ -59,6 +59,15 @@ const Piano = () => {
         }
     }
 
+    function getKeyColor(keyNumber) {
+        // Ensure the key number loops within the 12-key range (0-based index)
+        const noteIndex = keyNumber % 12;
+
+        const blackKeyIndices = new Set([1, 3, 6, 8, 10]);
+
+        return blackKeyIndices.has(noteIndex) ? 'black' : 'white';
+    }
+
     return (
         <motion.div
             initial={{ opacity: 0, y: 100 }} // Start off-screen to the left
@@ -67,10 +76,10 @@ const Piano = () => {
         >
             {piano.length && (
                 <div className="piano">
-                    {piano.map((key) => (
+                    {piano.map((key, index) => (
                         <div
                             key={key}
-                            className={`key ${key.includes('#') || key.includes('b') ? 'key--black' : 'key--white'} ${isPressed(key, scale) ? 'key--pressed' : ''}`}
+                            className={`key key--${getKeyColor(index)} ${isPressed(key, scale) ? 'key--pressed' : ''}`}
                         >
                             <span className='key__text'>{key}</span>
                         </div>
