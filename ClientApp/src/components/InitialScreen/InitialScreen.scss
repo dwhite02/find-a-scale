@@ -1,11 +1,33 @@
 @use "../../assets/scss/abstracts/index" as *;
 
 .callout-hero {
-    gap: 100px;
+    gap: 20px;
     max-width: 1250px;
+    flex-direction: column;
+    align-items: center;
+
+    @include breakpoint(md) {
+        gap: 100px;
+        flex-direction: row;
+        justify-content: center;
+    }
+    
+    &__content {
+        text-align: center;
+
+        @include breakpoint(md) {
+            width: 50%;
+            text-align: left;
+        }
+
+        @include breakpoint(lg) {
+            width: auto;
+        }
+    }
 
     &__image {
         position: relative;
+        min-height: 200px;
     }
 }
 
@@ -37,6 +59,7 @@
     box-sizing: border-box;
     display: block;
     animation: hover 1.25s ease-in-out infinite;
+    margin-inline: auto;
 
     &::after {
         content: '';
