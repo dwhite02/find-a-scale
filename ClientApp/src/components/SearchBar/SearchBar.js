@@ -62,7 +62,9 @@ const SearchBar = () => {
     };
 
     const handleGenerate = (scaleValue, noteValue) => {
-        fetchData(scaleValue, noteValue);
+        // Encode the input value to replace special characters like #
+        const encodedNoteValue = encodeURIComponent(noteValue);
+        fetchData(scaleValue, encodedNoteValue);
         setFormData((prevData) => ({
             ...prevData,
             selectedScale: scaleValue
